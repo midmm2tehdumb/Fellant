@@ -30,27 +30,29 @@
 
         <div class="misc-layout">
             <div class="blueprint-zone">
-                <img src="city.webp" alt="Fellant City Diagram" class="diagram-img">
-                <p class="caption">TECHNICAL SCHEMATIC: CAPITAL SILO INFRASTRUCTURE</p>
+                <div class="map-viewport" id="mapViewport">
+                    <img src="city.webp" alt="Fellant City Diagram" class="diagram-img" id="mapImage">
+                </div>
+                <p class="caption">SCHEMATIC 1.1: CLICK & DRAG TO PAN // SCROLL TO ZOOM</p>
             </div>
 
             <div class="tier-data">
                 <h2 class="category-header" style="margin-top: 0;">Silo Stratification</h2>
                 <div class="tier">
                     <span class="tier-label">Summit & Helipads</span>
-                    <p>Upper observation decks, cloud-watch arrays, and primary helipads for high-altitude transit.</p>
+                    <p>Upper observation decks and primary helipads for high-altitude transit. Water towers harvest peak-top ice for the city's pure supply.</p>
                 </div>
                 <div class="tier">
-                    <span class="tier-label">Residencies & Governance</span>
-                    <p>Protected living quarters and High Council administrative chambers located in the upper core.</p>
+                    <span class="tier-label">Upper Core</span>
+                    <p>Residencies and Governance chambers. Protected from the most extreme Diamond Rain impacts.</p>
                 </div>
                 <div class="tier">
-                    <span class="tier-label">Commerce & Food Growing</span>
-                    <p>Industrial kitchens, shops, restaurants, and massive hydroponic food-growing silos.</p>
+                    <span class="tier-label">Mid-Section</span>
+                    <p>The cultural heart. Contains restaurants, shops, businesses, and massive hydroponic food-growing silos.</p>
                 </div>
                 <div class="tier">
                     <span class="tier-label">Root Level Industry</span>
-                    <p>Business districts, heavy manufacturing, and geothermal stabilizers located in the mountain base.</p>
+                    <p>Heavy manufacturing, geothermal power roots, and heavy element processing at the mountain base.</p>
                 </div>
             </div>
         </div>
@@ -60,22 +62,22 @@
             <div class="energy-card">
                 <div class="energy-icon">⚡</div>
                 <h4>Aurora Static</h4>
-                <p>Primary grid source harvested from peak-mounted combs during atmospheric disturbances.</p>
-                <span class="status">GRID: ATMOSPHERIC</span>
+                <p>Atmospheric grid harvesting. Peak-mounted lattice combs pull power directly from the Eternal Aurora.</p>
+                <span class="status">GRID: ACTIVE</span>
             </div>
 
             <div class="energy-card">
                 <div class="energy-icon">🔥</div>
                 <h4>Geothermal</h4>
-                <p>Secondary grid tapping directly into the planetary core heat beneath the silo foundations.</p>
-                <span class="status">GRID: THERMAL</span>
+                <p>Consistent core-tapping energy. Drilled into the mountain roots to provide a stable secondary power grid.</p>
+                <span class="status">GRID: STEADY</span>
             </div>
 
             <div class="energy-card">
                 <div class="energy-icon">⚛️</div>
                 <h4>Helium-3 Fusion</h4>
-                <p>High-output energy for ships and remote outposts, powered by the abundance of southern Helium-3.</p>
-                <span class="status">GRID: FUSION</span>
+                <p>A staple energy source powered by the abundance of Helium-3. Used for everything from city power to orbital ships.</p>
+                <span class="status">GRID: CRITICAL</span>
             </div>
         </div>
 
@@ -84,12 +86,57 @@
         <div class="guidelines">
             <h2 class="category-header">Silo Guidelines</h2>
             <ul class="guideline-list">
-                <li><strong>Oxygen Management:</strong> All citizens must verify seal integrity before entering the helipad decks.</li>
-                <li><strong>Energy Protocols:</strong> Fusion cores are reserved for off-world transit and emergency backup.</li>
-                <li><strong>Vanguard Protocol:</strong> Report any unauthorized signal encryption detected near the Great Step.</li>
+                <li><strong>Atmospheric Pressure:</strong> Fellant biology supports both thin and thick air; however, residential seals must be maintained to filter metallic dust.</li>
+                <li><strong>Energy Staples:</strong> Fusion output is a standard requirement. Report any Helium-3 shortage to the Management immediately.</li>
+                <li><strong>Security Protocol:</strong> All unauthorized encrypted signals from the Great Step base are to be treated as Vanguard threats.</li>
             </ul>
         </div>
     </div>
+
+    <script>
+        const viewport = document.getElementById('mapViewport');
+        const img = document.getElementById('mapImage');
+
+        let scale = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+
+        // SCROLL TO ZOOM
+        viewport.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomSpeed = 0.15;
+            if (e.deltaY < 0) {
+                scale += zoomSpeed;
+            } else {
+                scale = Math.max(1, scale - zoomSpeed);
+            }
+            // Reset position if zoomed all the way out
+            if (scale === 1) { translateX = 0; translateY = 0; }
+            updateTransform();
+        });
+
+        // CLICK AND DRAG
+        viewport.addEventListener('mousedown', (e) => {
+            if (scale === 1) return; // Only drag if zoomed in
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateTransform();
+        });
+
+        function updateTransform() {
+            img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        }
+    </script>
 
 </body>
 </html>
