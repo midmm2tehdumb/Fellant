@@ -214,3 +214,45 @@ h1 { font-size: 4rem; color: #00d4ff; letter-spacing: 6px; text-shadow: 0 0 20px
 html {
     scroll-behavior: smooth;
 }
+
+/* --- FOREIGN RELATIONS DOSSIER STYLES --- */
+.dossier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.dossier-item strong {
+    color: #b87333; /* Industrial Copper */
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.dossier-section {
+    margin-top: 25px;
+}
+
+.dossier-section h4 {
+    color: #00d4ff;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.dossier-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #aeb9c7;
+}
+
+/* Security Tag override for Hostile nations */
+.tag.security {
+    color: #ff4d4d; /* Red for high threat */
+    border-color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.1);
+}
