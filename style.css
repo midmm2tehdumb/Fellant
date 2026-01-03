@@ -345,22 +345,43 @@ html {
     align-items: start;
 }
 
-/* Blueprint/Diagram Container */
+/* Container to hold the image and clip the zoom */
 .blueprint-zone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    overflow: hidden; /* This is key for the zoom effect */
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    position: relative;
+    cursor: zoom-in;
 }
 
 .diagram-img {
     width: 100%;
-    max-width: 600px;
-    aspect-ratio: 1 / 1; /* Forces the image to remain square */
-    border: 1px solid rgba(0, 212, 255, 0.4);
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
-    object-fit: cover;
-    background-color: #080a0f;
+    transition: transform 0.5s ease; /* Smooth zoom speed */
+    display: block;
 }
+
+/* The Zoom Effect on Hover */
+.blueprint-zone:hover .diagram-img {
+    transform: scale(1.5); /* 1.5x zoom - adjust as needed */
+}
+
+/* Optional: Add a label that fades out on hover */
+.blueprint-zone::after {
+    content: "HOVER TO ZOOM";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #00d4ff;
+    padding: 5px 10px;
+    font-size: 0.6rem;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.blueprint-zone:hover::after {
+    opacity: 0;
+}
+
 
 .caption {
     font-size: 0.75rem;
