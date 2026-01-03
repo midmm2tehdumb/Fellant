@@ -138,3 +138,72 @@ h1 {
     color: #080a0f;
     box-shadow: 0 0 30px #00d4ff;
 }
+
+
+/* --- NEWS FEED STYLES --- */
+.news-feed {
+    height: 75vh; /* Sets how tall the scrollable area is */
+    overflow-y: auto; /* Makes it scrollable */
+    padding-right: 15px;
+}
+
+/* Custom Scrollbar for the News Feed */
+.news-feed::-webkit-scrollbar {
+    width: 6px;
+}
+.news-feed::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 10px;
+}
+
+.news-card {
+    background: rgba(8, 10, 15, 0.85);
+    border-left: 4px solid #b87333;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-top: 1px solid rgba(184, 115, 51, 0.2);
+    border-right: 1px solid rgba(184, 115, 51, 0.2);
+    border-bottom: 1px solid rgba(184, 115, 51, 0.2);
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.tag {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    background: rgba(184, 115, 51, 0.2);
+    color: #b87333;
+    border: 1px solid #b87333;
+}
+
+.tag.industrial { color: #00d4ff; border-color: #00d4ff; background: rgba(0, 212, 255, 0.1); }
+
+.cycle {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.news-card h2 {
+    color: #00d4ff;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.news-card p {
+    color: #aeb9c7;
+    line-height: 1.6;
+}
+
+.news-footer {
+    margin-top: 20px;
+    font-size: 0.6rem;
+    color: #444;
+    text-align: right;
+    letter-spacing: 1px;
+}
