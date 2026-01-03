@@ -354,6 +354,12 @@ html {
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
     position: relative;
     cursor: crosshair;
+
+    /* PREVENT SELECTION HIGHLIGHTING */
+    user-select: none;           /* Standard */
+    -webkit-user-select: none;    /* Safari/Chrome */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE/Edge */
 }
 
 .map-viewport:active {
