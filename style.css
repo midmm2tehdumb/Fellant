@@ -1,0 +1,132 @@
+/* Core Reset & Theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #080808; /* Deep black space/rock feel */
+    color: #d1d1d1;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden; /* Keeps the hero page as a single immersive screen */
+}
+
+/* Navigation Bar */
+.navbar {
+    width: 100%;
+    padding: 20px 0;
+    background: linear-gradient(to bottom, #121212, transparent);
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.nav-logo img {
+    height: 60px;
+    border: 2px solid #39ff14; /* Aurora Green Glow */
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #b87333; /* Industrial Copper */
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #39ff14;
+    text-shadow: 0 0 8px #39ff14;
+}
+
+/* Hero Section */
+.hero-frame {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #1a1a1a 0%, #080808 100%);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.main-flag {
+    width: 280px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 15px rgba(184, 115, 51, 0.4));
+}
+
+h1 {
+    font-size: 3.8rem;
+    color: #39ff14;
+    margin-bottom: 5px;
+    letter-spacing: 4px;
+}
+
+.nation-name {
+    font-size: 1.4rem;
+    color: #b87333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.hero-intro {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-left: 3px solid #b87333;
+    border-right: 3px solid #b87333;
+    margin-bottom: 50px;
+}
+
+.hero-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #bbb;
+}
+
+/* Call to Action Button */
+.btn-ascend {
+    display: inline-block;
+    padding: 18px 40px;
+    background-color: transparent;
+    color: #39ff14;
+    border: 2px solid #39ff14;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: all 0.4s ease;
+}
+
+.btn-ascend:hover {
+    background-color: #39ff14;
+    color: #000;
+    box-shadow: 0 0 20px #39ff14;
+    cursor: pointer;
+}
