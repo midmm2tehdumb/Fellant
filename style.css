@@ -88,6 +88,7 @@ body {
     /* This ensures text is readable over the flag */
     background: rgba(8, 10, 15, 0.6); 
     border-radius: 15px;
+    margin-top: 100px;
 }
 
 h1 {
