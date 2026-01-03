@@ -333,3 +333,148 @@ html {
     color: #444;
     font-style: italic;
 }
+
+/* --- MISC & TECHNICAL ARCHIVE STYLES --- */
+
+/* Main layout splitting the diagram and the text data */
+.misc-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 40px;
+    margin-top: 30px;
+    align-items: start;
+}
+
+/* Blueprint/Diagram Container */
+.blueprint-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diagram-img {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1; /* Forces the image to remain square */
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+    object-fit: cover;
+    background-color: #080a0f;
+}
+
+.caption {
+    font-size: 0.75rem;
+    color: #555;
+    margin-top: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* City Stratification List */
+.tier {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(184, 115, 51, 0.2);
+}
+
+.tier-label {
+    display: block;
+    color: #00d4ff; /* Glacial Blue */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.tier p {
+    color: #aeb9c7;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Energy Grid Dashboard */
+.energy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns for the three sources */
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.energy-card {
+    background: rgba(8, 10, 15, 0.6);
+    border: 1px solid rgba(184, 115, 51, 0.3); /* Copper border */
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.energy-card:hover {
+    transform: translateY(-5px);
+    border-color: #00d4ff;
+}
+
+.energy-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.energy-card h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.energy-card p {
+    font-size: 0.85rem;
+    color: #aeb9c7;
+    margin-bottom: 20px;
+    height: 60px; /* Keeps cards aligned even if text length varies */
+}
+
+.status {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #b87333; /* Copper accent */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    letter-spacing: 1px;
+}
+
+/* Guidelines and Dividers */
+.divider {
+    margin: 60px 0;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+}
+
+.guideline-list {
+    list-style: none;
+    padding: 0;
+}
+
+.guideline-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 18px;
+    color: #e0e6ed;
+    font-size: 1rem;
+}
+
+.guideline-list li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    color: #b87333;
+    font-size: 1.2rem;
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 900px) {
+    .misc-layout, .energy-grid {
+        grid-template-columns: 1fr;
+    }
+}
