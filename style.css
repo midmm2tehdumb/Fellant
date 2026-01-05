@@ -524,3 +524,9 @@ h1.section-title {
 .misc-fleet-table td {
     text-align: center;
 }
+
+.section-title {
+    text-align: center;
+    width: 100%;
+    margin: 40px 0 20px 0; /* Adds space around the title */
+}
