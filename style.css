@@ -662,3 +662,12 @@ h1.section-title {
     .modal-content { width: 95%; margin: 20px auto; padding: 25px; }
     .btn-ascend { width: 90%; }
 }
+.constitution-trigger-container {
+
+    text-align: center;
+
+    margin-top: 200px;    /* Increase this number to move it further down */
+
+    margin-bottom: 40px;
+
+}
