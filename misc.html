@@ -359,6 +359,38 @@
         function updateTransform() {
             img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
         }
+
+        // --- MODAL CONTROLS ---
+window.openModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Stops the background from scrolling
+    }
+};
+
+window.closeModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Brings back scrolling
+    }
+};
+
+window.openSubModal = function(subId) {
+    const subModal = document.getElementById(subId);
+    if (subModal) {
+        subModal.style.display = "block";
+    }
+};
+
+// This allows you to click outside the box to close it
+window.onclick = function(event) {
+    if (event.target.classList.contains('fellant-modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+};
     </script>
 
 </body>
