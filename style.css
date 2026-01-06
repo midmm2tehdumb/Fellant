@@ -531,70 +531,105 @@ h1.section-title {
     margin: 40px 0 20px 0; /* Adds space around the title */
 }
 
-/* --- CONSTITUTION MODAL UI --- */
+/* --- CONSTITUTION MODAL UI & TRIGGER --- */
+
+/* The outer container for the button */
 .constitution-trigger-container {
     text-align: center;
-    margin-bottom: 40px;
+    margin: 40px 0; /* Balanced spacing */
+    width: 100%;
 }
 
+/* The button styled like a News Card */
+.btn-ascend {
+    display: inline-block;
+    padding: 18px 45px;
+    background: rgba(8, 10, 15, 0.85); /* Semi-transparent dark */
+    border: 1px solid rgba(184, 115, 51, 0.3);
+    border-left: 4px solid #b87333; /* Signature copper stripe */
+    color: #00d4ff;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ascend:hover {
+    background: rgba(184, 115, 51, 0.15);
+    border-color: #00d4ff;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* The full-screen background overlay */
 .fellant-modal {
     display: none;
     position: fixed;
-    z-index: 2000;
+    z-index: 3000; /* High z-index to stay above everything */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(8, 10, 15, 0.95);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
 }
 
+/* The actual pop-up box */
 .modal-content {
-    background: rgba(15, 20, 30, 0.9);
-    margin: 5% auto;
+    background: rgba(15, 20, 30, 0.95);
+    margin: 80px auto; /* Margin to keep it clear of the top */
     padding: 40px;
     border: 1px solid #b87333;
-    width: 80%;
-    max-width: 900px;
+    width: 85%;
+    max-width: 850px;
     position: relative;
-    box-shadow: 0 0 30px rgba(184, 115, 51, 0.2);
-    max-height: 80vh;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    max-height: 85vh;
     overflow-y: auto;
 }
 
+/* Style for sub-modals (sections of the constitution) */
 .sub-modal .modal-content {
     border-color: #00d4ff;
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
 }
 
+/* The close button (X) */
 .close-modal {
     position: absolute;
-    right: 20px;
-    top: 10px;
-    color: #555;
-    font-size: 30px;
+    right: 25px;
+    top: 15px;
+    color: #b87333;
+    font-size: 32px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .close-modal:hover {
     color: #ff4d4d;
+    transform: scale(1.1);
 }
 
+/* Grid for the 10 Constitution chapters */
 .modal-nav-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    margin-top: 25px;
 }
 
+/* Chapter buttons inside the modal */
 .modal-nav-btn {
     background: rgba(184, 115, 51, 0.1);
     border: 1px solid #b87333;
     color: #e0e6ed;
-    padding: 15px;
+    padding: 18px;
     cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', monospace;
     font-weight: bold;
     text-align: left;
     transition: 0.3s;
@@ -603,27 +638,27 @@ h1.section-title {
 .modal-nav-btn:hover {
     background: #b87333;
     color: #080a0f;
-    box-shadow: 0 0 15px #b87333;
+    box-shadow: 0 0 15px rgba(184, 115, 51, 0.4);
 }
 
+/* Text styling inside sub-modals */
 .sub-modal h3 {
     color: #00d4ff;
     margin-bottom: 20px;
-    border-bottom: 1px solid #00d4ff;
+    border-bottom: 2px solid #00d4ff;
     padding-bottom: 10px;
+    letter-spacing: 2px;
 }
 
 .sub-modal p {
-    line-height: 1.6;
+    line-height: 1.8;
     color: #aeb9c7;
+    font-size: 1rem;
 }
 
-@media (max-width: 600px) {
+/* Mobile adjustments */
+@media (max-width: 768px) {
     .modal-nav-grid { grid-template-columns: 1fr; }
-}
-
-.constitution-trigger-container {
-    text-align: center;
-    margin-top: 200px;    /* Increase this number to move it further down */
-    margin-bottom: 40px;
+    .modal-content { width: 95%; margin: 20px auto; padding: 25px; }
+    .btn-ascend { width: 90%; }
 }
